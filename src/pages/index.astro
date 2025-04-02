@@ -1,7 +1,53 @@
 ---
+import BlogPost from '../components/BlogPost.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-const pageTitle = "Página de inicio";
+const pageTitle = "Amerik's Reading Corner";
+const allPosts = await Astro.glob('../pages/posts/*.md');
 ---
 <BaseLayout pageTitle={pageTitle}>
-  <h2>Mi impresionante subtítulo del blog</h2>
+  <style>
+    header{
+      font-family: 'Times New Roman', Times, serif;
+      color: black;
+    }
+  </style>
+  <body>
+    <header>
+      <h2>Bienvenid@ a mi rincón literario</h1>
+      <p>Un espacio dedicado a mis lecturas, reseñas y desafíos literarios. ¡Espero que disfrutes este viaje entre páginas!</p>
+    </header>
+    <section id="reading-challenge">
+      <h2>Mi Desafío de Lectura 2025</h2>
+      <p>Este año me propuse leer 25 libros, y aquí va mi progreso:</p>
+      <div class="progress-bar-background">
+        <div class="progress-bar" style="width: 12%;"></div>
+      </div>
+      <p>Libros leídos hasta ahora: 3 de 25</p>
+    </section>
+        <!-- Últimas reseñas -->
+        <section id="latest-reviews">
+          <h2>Últimas Reseñas</h2>
+          <ul>
+            {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
+          </ul>
+        </section>
+    
+        <!-- Categorías de libros -->
+        <section id="genres">
+          <h2>Explora mis géneros literarios</h2>
+          <ul>
+            <li><a href="/genero/fantasia">Fantasía</a></li>
+            <li><a href="/genero/misterio">Misterio/Thriller</a></li>
+            <li><a href="/genero/romance">Romance</a></li>
+            <li><a href="/genero/ciencia-ficcion">Ciencia Ficción</a></li>
+          </ul>
+        </section>
+    <section id="about">
+      <h2>¿Quién soy?</h2>
+      <p>¿Quieres saber más sobre mí? <a href="/about">Descubre mi historia</a></p>
+    </section>
+  </body>
 </BaseLayout>
+
+
+

@@ -10,11 +10,15 @@ const { pageTitle } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <img class="page-cover-image" src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%">
     <title>{pageTitle}</title>
+    <style>
+   
+    </style>
   </head>
   <body>
     <Header />
-    <h1>{pageTitle}</h1>
+    <!--<h1 style="font-family:'Times New Roman', Times, serif; color: deeppink;">{pageTitle}</h1>-->
     <slot />
     <Footer />
     <script>
