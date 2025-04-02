@@ -49,13 +49,13 @@ Simon Snow es el mago más poderoso que el Mundo de los Magos ha conocido, pero 
 ## Opinion Personal
 </div>
 
-<div>
+<div style="text-align: justify;">
 <img src="https://i.pinimg.com/736x/db/4e/80/db4e807074ef1f941e804cc27055ec0e.jpg" alt="Portada" width="200" style="float: left; margin-right: 25px;">
 <br>
 Uno de los aspectos más destacados de "Carry On" es cómo Rainbow Rowell juega con los clichés del género de fantasía y los transforma en algo fresco y entretenido. Aunque la historia comienza como una sátira del clásico "elegido", poco a poco desarrolla su propia identidad.
 </div>
 
-<div style="display: flex; gap: 20px; margin-top: 60px;">
+<div style="display: flex; gap: 20px; margin-top: 60px; text-align: justify;">
 <div style="flex: 1;">
 
 ### Lo que más me gustó:
