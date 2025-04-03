@@ -14,4 +14,4 @@ Los libros están organizados por género, y cada entrada está etiquetada adecu
 
 El blog está desplegado en [Netlify](https://www.netlify.com/), lo que permite una carga rápida y eficiente de las páginas. Puedes acceder al blog a través del siguiente enlace:
 
-**[Visita el blog aquí](https://tu-blog-en-netlify.netlify.app)**
+**[Visita el blog aquí](https://amerikg-blog.netlify.app/)**
