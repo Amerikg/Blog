@@ -3,9 +3,9 @@ import BaseLayout from './BaseLayout.astro';
 const { frontmatter } = Astro.props;
 ---
 <BaseLayout pageTitle={frontmatter.title}>
-  <p><em>{frontmatter.description}</em>  
+  <p><em>{frontmatter.description} 
     <br>{frontmatter.pubDate.toString().slice(0,10)}
-    <br>Escrito por: {frontmatter.author}
+    <br>Escrito por: {frontmatter.author}</em>
   </p>
   
 
@@ -21,20 +21,23 @@ const { frontmatter } = Astro.props;
 </BaseLayout>
 <style>
   a {
-    color: #e62994;
+    color: #b360e7;
+    text-decoration: none;
   }
 
   .tags {
     display:flex;
     flex-wrap:wrap;
+    justify-content: center;
   }
 
   .tag {
-    margin: 0.25em;
-    border: dotted 1px #ff6fca;
-    border-radius: .5em;
-    padding: .5em 1em;
+    margin: 0.20em;
+    border: dotted 1px #b360e7;
+    border-radius: 1em;
+    padding: .3em 1em;
     font-size: 1em;
-    background-color: #ffffff;
+    background-color: #dfc8ed;
+    
   }
 </style>

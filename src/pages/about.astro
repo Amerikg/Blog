@@ -4,22 +4,14 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 
 const pageTitle = "Sobre mi";
-const identity = {
-  firstName: "Amerik",
-  country: "Mexico",
-  occupation: "Ing. en Computación",
-  hobbies: ["leer, escribir, yoga"],
-};
 
 const goal = 25;  // Total de libros a leer
-const booksRead = 3;  // Libros leídos hasta ahora
+const booksRead = 4;  // Libros leídos hasta ahora
 
-const skillColor = "magenta";
-const fontWeight = "bold";
-const textCase = "uppercase";
 
 // Calcular el porcentaje de progreso
 const progressPercentage = (booksRead / goal) * 100;
+
 ---
 
 <html lang="es">
@@ -28,32 +20,24 @@ const progressPercentage = (booksRead / goal) * 100;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} >
-    <img class="page-cover-image" src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%">
+    <!--<img class="page-cover-image" src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%">-->
     <title>{pageTitle}</title>
-    <style define:vars={{skillColor, fontWeight, textCase}}>
+    <style>
       h1 {
         color: rgb(228, 17, 144);
         font-size: 4rem;
         font-family: 'Times New Roman', Times, serif;
+        margin-bottom: -30px;
       }
       h2 {
         color: deeppink;
         font-family: 'Times New Roman', Times, serif;
       }
-      .skill{
-        color: var(--skillColor);
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
+      .dark h1{
+        color: #f286c4;
       }
-      
-      ul {
-        text-align: left;
-        padding: 0;
-        list-style-type: none;
-      }
-
-      ul li {
-        margin-bottom: 10px;
+      .dark h2{
+        color: #f286c4;
       }
     </style>
   </head>
@@ -62,12 +46,12 @@ const progressPercentage = (booksRead / goal) * 100;
     <h1>{pageTitle}</h1>
     <h2>... ¡y lo que encontrarás en este blog!</h2>
 
-    <p>¡Hola! Soy Amerik, amante de los libros y la tecnología. Vivo en México y actualmente estudio Ingeniería en Computación. Aunque mi carrera está llena de códigos y algoritmos, siempre encuentro tiempo para perderme en las páginas de un buen libro.</p>
-    <p style="text-justify:newspaper;">Desde pequeña, la lectura ha sido mi refugio y mi mejor forma de viajar sin salir de casa. Me encantan los mundos de fantasía, los thrillers llenos de misterio y las historias que dejan una huella en el corazón. A través de este blog, quiero compartir mis lecturas, recomendaciones y opiniones sobre los libros que me han atrapado.</p>
-    <p>Cuando no estoy programando o devorando un libro, me gusta descubrir nuevas historias, debatir sobre finales inesperados y agregar más títulos a mi eterna lista de pendientes.</p>
-    <p>Bienvenid@ a mi rincón literario. ¡Espero que disfrutes este viaje entre páginas tanto como yo!</p>
+    <p style="text-align:justify;">¡Hola! Soy Amerik, amante de los libros y la tecnología. Vivo en México y actualmente estudio Ingeniería en Computación. Aunque mi carrera está llena de códigos y algoritmos, siempre encuentro tiempo para perderme en las páginas de un buen libro.</p>
+    <p style="text-align:justify;">Desde pequeña, la lectura ha sido mi refugio y mi mejor forma de viajar sin salir de casa. Me encantan los mundos de fantasía, los thrillers llenos de misterio y las historias que dejan una huella en el corazón. A través de este blog, quiero compartir mis lecturas, recomendaciones y opiniones sobre los libros que me han atrapado.</p>
+    <p style="text-align:justify;">Cuando no estoy programando o devorando un libro, me gusta descubrir nuevas historias, debatir sobre finales inesperados y agregar más títulos a mi eterna lista de pendientes.</p>
+    <p style="text-align:justify;">Bienvenid@ a mi rincón literario. ¡Espero que disfrutes este viaje entre páginas tanto como yo!</p>
     
-    <p>Este año me propuse leer al menos 25 libros, explorando diferentes géneros y descubriendo nuevas historias. Aquí llevo el progreso de mi desafío:</p>
+    <p style="text-align:justify;">Este año me propuse leer al menos 25 libros, explorando diferentes géneros y descubriendo nuevas historias. Aquí llevo el progreso de mi desafío:</p>
 
     <!-- Barra de Progreso -->
     <div class="progress-bar-background">

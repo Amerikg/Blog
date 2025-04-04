@@ -3,12 +3,15 @@ import BlogPost from '../components/BlogPost.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = "Amerik's Reading Corner";
 const allPosts = await Astro.glob('../pages/posts/*.md');
+const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+const goal = 25;  // Total de libros a leer
+const booksRead = 4;  // Libros leídos hasta ahora
+const progressPercentage = (booksRead / goal) * 100;
 ---
 <BaseLayout pageTitle={pageTitle}>
   <style>
     header{
       font-family: 'Times New Roman', Times, serif;
-      color: black;
     }
   </style>
   <body>
@@ -19,19 +22,19 @@ const allPosts = await Astro.glob('../pages/posts/*.md');
    <div style="display: flex; gap: 20px; margin-top: 10px; text-align: justify;">
     <div style="flex: 1;">
     <section id="reading-challenge">
-      <h2 style="text-align: center; color:white; background-color: #e33994;">Mi Desafío de Lectura 2025</h2>
+      <h2 class="HeaderPink">Mi Desafío de Lectura 2025</h2>
       <p>Este año me propuse leer 25 libros, y aquí va mi progreso:</p>
       <div class="progress-bar-background">
-        <div class="progress-bar" style="width: 12%;"></div>
+        <div class="progress-bar" style={`width: ${progressPercentage}%`}></div>
       </div>
-      <p>Libros leídos hasta ahora: 3 de 25</p>
+      <p style="text-align: center;">Libros leídos hasta ahora: {booksRead} de {goal}</p>
     </section>
     </div>
     <div style="flex: 1;">
         <!-- Últimas reseñas -->
         <section id="latest-reviews">
-          <h2 style="text-align: center; color:white; background-color:#cae3f0;">Últimas Reseñas</h2>
-          <ul>
+          <h2 class="HeaderBlue">Últimas Reseñas</h2>
+          <ul class="Blogs">
             {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
           </ul>
         </section>
@@ -39,17 +42,19 @@ const allPosts = await Astro.glob('../pages/posts/*.md');
    </div>
      <!-- Categorías de libros -->
      <section id="genres">
-      <h2>Explora mis géneros literarios</h2>
-      <ul>
-        <li><a href="/genero/fantasia">Fantasía</a></li>
-        <li><a href="/genero/misterio">Misterio/Thriller</a></li>
-        <li><a href="/genero/romance">Romance</a></li>
-        <li><a href="/genero/ciencia-ficcion">Ciencia Ficción</a></li>
+      <h2 class="HeaderP">Explora mis géneros literarios</h2>
+      <ul class="Tags">
+        {tags.map((tag) => (
+          <li key={tag} className="tag">
+            <a href={`/tags/${tag}`}>{tag}</a>
+          </li>
+        ))}
       </ul>
+      
     </section>
-    <section id="about">
+    <section id="about" class="Footer">
       <h2>¿Quién soy?</h2>
-      <p>¿Quieres saber más sobre mí? <a href="/about">Descubre mi historia</a></p>
+      <p style="margin-top: -20px;">¿Quieres saber más sobre mí? <a href="/about">Descubre mi historia</a></p>
     </section>
   </body>
 </BaseLayout>
