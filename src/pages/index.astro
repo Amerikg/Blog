@@ -5,7 +5,7 @@ const pageTitle = "Amerik's Reading Corner";
 const allPosts = await Astro.glob('../pages/posts/*.md');
 const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
 const goal = 25;  // Total de libros a leer
-const booksRead = 4;  // Libros leídos hasta ahora
+const booksRead = 5;  // Libros leídos hasta ahora
 const progressPercentage = (booksRead / goal) * 100;
 ---
 <BaseLayout pageTitle={pageTitle}>
@@ -34,9 +34,21 @@ const progressPercentage = (booksRead / goal) * 100;
         <!-- Últimas reseñas -->
         <section id="latest-reviews">
           <h2 class="HeaderBlue">Últimas Reseñas</h2>
-          <ul class="Blogs">
+          <ul className="Blogs">
+            {[...allPosts]
+              .sort((a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate))
+              .slice(0, 5)
+              .map((post) => (
+                <BlogPost
+                  key={post.url}
+                  url={post.url}
+                  title={post.frontmatter.title}
+                />
+              ))}
+          </ul>          
+          <!--<ul class="Blogs">
             {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
-          </ul>
+          </ul>-->
         </section>
     </div>
    </div>
@@ -44,13 +56,12 @@ const progressPercentage = (booksRead / goal) * 100;
      <section id="genres">
       <h2 class="HeaderP">Explora mis géneros literarios</h2>
       <ul class="Tags">
-        {tags.map((tag) => (
+        {[...tags].sort().map((tag) => (
           <li key={tag} className="tag">
             <a href={`/tags/${tag}`}>{tag}</a>
           </li>
-        ))}
-      </ul>
-      
+        ))}        
+      </ul> 
     </section>
     <section id="about" class="Footer">
       <h2>¿Quién soy?</h2>

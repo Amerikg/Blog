@@ -7,6 +7,14 @@ const pageTitle = "Mi blog de aprendizaje de Astro";
 <BaseLayout pageTitle={pageTitle}>
   <p>Aquí es donde publicaré sobre mi viaje de aprendizaje de Astro.</p>
   <ul>
-    {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
+    {[...allPosts]
+      .sort((a, b) => a.frontmatter.title.localeCompare(b.frontmatter.title))
+      .map((post) => (
+        <BlogPost
+          key={post.url}
+          url={post.url}
+          title={post.frontmatter.title}
+        />
+      ))}
   </ul>
 </BaseLayout>

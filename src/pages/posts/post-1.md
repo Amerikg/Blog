@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Carry On - Rainbow Rowell'
-pubDate: 2025-04-02
+pubDate: 2025-01-18
 description: 'Reseña de Carry On, una historia de magia, romance y aventura'
 author: 'Amerik'
 image:

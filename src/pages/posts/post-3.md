@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Anyway the Wind Blows - Rainbow Rowell'
-pubDate: 2025-04-04
+pubDate: 2025-03-10
 description: 'Reseña de Anyway the Wind Blows, el desenlace de la trilogía de Simon Snow'
 author: 'Amerik'
 image:
@@ -18,8 +18,8 @@ tags: ["Fantasía", "LGBTQ+", "Romance", "Aventura"]
 
 ***
 Autor: Rainbow Rowell  
-Inicio: 18 de febrero de 2025  
-Finalización: 25 de febrero de 2025  
+Inicio: 26 de febrero de 2025  
+Finalización: 09 de marzo de 2025  
 Calificación: ⭐⭐⭐⭐☆ (4/5)
 ***
 

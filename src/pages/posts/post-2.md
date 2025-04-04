@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Wayward Son - Rainbow Rowell'
-pubDate: 2025-04-03
+pubDate: 2025-02-26
 description: 'Reseña de Wayward Son, la secuela de Carry On que nos lleva a una aventura inesperada'
 author: 'Amerik'
 image:

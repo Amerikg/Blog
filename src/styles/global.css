@@ -97,21 +97,34 @@ html {
 }
 
 .Blogs{
-  color:#aedcf5
+  color:#aedcf5;
 }
+
+.Blogs a{
+  color:#aedcf5;
+  text-decoration: none;
+}
+
+.Blogs a:hover {
+  text-decoration: underline;
+}
+
 
 .Tags{
   color: #b360e7;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 3 columnas */
-  gap: 2px; /* Espaciado entre elementos */
-  /*list-style: none; /* Elimina los estilos de lista */
-  padding: 1;
+  column-count: 4;
+  column-gap: 2rem; 
+  margin: 0;
+  padding: 10;
 }
 
 .Tags a{
   color: #b360e7;
   text-decoration: none;
+}
+
+.Tags a:hover {
+  text-decoration: underline;
 }
 
 .HeaderP{
@@ -128,6 +141,10 @@ html {
 .Footer a { 
   color: rgb(243, 117, 220);
   text-decoration: none;
+}
+
+.Footer a:hover {
+  text-decoration: underline;
 }
 
 .dark .Footer a { 
