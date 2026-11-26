@@ -137,7 +137,7 @@ select:focus-visible {
   .theme-toggle:hover { background: var(--color-surface-elevated); color: var(--color-content-primary); }
 
   .hero { max-width: 1400px; margin: auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 690px; }
-  .hero-copy { min-width: 0; padding: 56px; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+  .hero-copy { min-width: 0; padding: 56px; display: flex; flex-direction: column; justify-content: column; gap: 32px; }
   .eyebrow { color: var(--color-content-primary); font-size: 11px; text-transform: uppercase; letter-spacing: .18em; }
   .hero-label { display: flex; align-items: center; gap: 12px; }
   .hero-label span { width: 36px; height: 1px; background: currentColor; }
@@ -150,7 +150,7 @@ select:focus-visible {
   }
   .hero h1 em, .goal-section h2 em, .recommend-section h2 em { color: var(--color-content-primary); font-weight: 400; }
   .hero h1 { overflow-wrap: anywhere; font-size: clamp(42px, 5vw, 82px); }
-  .hero-reading { overflow-wrap: anywhere; }
+  .hero-reading { overflow-wrap: anywhere; margin-top: auto; margin-bottom: auto;}
   .hero-copy .hero-author { margin-top: 20px; color: var(--color-content-primary); font-size: 15px; }
   .hero-copy [hidden] { display: none; }
   .hero-copy > div > p, .goal-section > div > p:last-child, .recommend-section > div > p:last-child {
@@ -204,7 +204,28 @@ select:focus-visible {
   .goal-numbers strong { display: block; font: 28px var(--font-display); color: var(--color-text); }
   .text-link { font-size: 11px; color: var(--color-content-primary); text-transform: uppercase; letter-spacing: .12em; }
   .text-link:hover, .more-reviews a:hover { text-decoration: underline; text-underline-offset: 4px; }
-  .recommend-section { background: var(--color-surface); }
+  .recommend-section {
+    --recommend-text: var(--color-background);
+    --recommend-accent: #241815;
+    --recommend-panel: color-mix(in srgb, var(--color-surface) 82%, var(--color-primary));
+    --recommend-field: var(--color-background);
+    --recommend-form-text: var(--color-text);
+    --recommend-border: color-mix(in srgb, var(--color-primary) 40%, var(--color-surface));
+    background: var(--color-primary);
+    color: var(--recommend-text);
+  }
+  [data-theme="dark"] .recommend-section {
+    --recommend-text: var(--color-text);
+    --recommend-accent: var(--color-text);
+    --recommend-panel: color-mix(in srgb, var(--color-text) 75%, var(--color-primary));
+    --recommend-field: var(--color-text);
+    --recommend-form-text: #342F2C;
+    --recommend-border: color-mix(in srgb, var(--color-primary) 55%, var(--color-text));
+    background: color-mix(in srgb, var(--color-primary) 35%, var(--color-background));
+  }
+  .recommend-section .eyebrow, .recommend-section h2 em { color: var(--recommend-accent); }
+  .recommend-section .eyebrow { display: inline-block; padding: 5px 10px; border-radius: 4px; color: var(--recommend-form-text); }
+  .recommend-section > div > p:last-child { color: var(--recommend-text); }
   .recommend-form { display: grid; gap: 22px; }
   .recommend-form label, .stat-label { display: grid; gap: 8px; color: var(--color-content-muted); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
   .recommend-form input, .recommend-form textarea, .stats-filters select, .search-form input {
@@ -214,6 +235,26 @@ select:focus-visible {
   .recommend-form input:disabled, .recommend-form textarea:disabled, .stats-filters select:disabled { background: var(--color-surface); color: var(--color-content-muted); }
   .recommend-form button { justify-self: start; background: var(--color-border); color: var(--color-text); padding: 14px 20px; border-radius: 4px; text-transform: uppercase; letter-spacing: .12em; font-size: 10px; }
   .form-note { color: var(--color-content-muted); font-size: 12px; }
+  .recommend-form {
+    align-self: start;
+    padding: clamp(24px, 3vw, 36px);
+    border: 1px solid var(--recommend-border);
+    border-radius: 6px;
+    background: var(--recommend-panel);
+    box-shadow: 0 12px 30px rgb(52 40 29 / 12%);
+  }
+  .recommend-form label { color: var(--recommend-form-text); font-weight: 700; }
+  .recommend-form input, .recommend-form textarea,
+  .recommend-form input:disabled, .recommend-form textarea:disabled {
+    border-color: var(--recommend-border);
+    background: var(--recommend-field);
+    color: var(--recommend-form-text);
+    opacity: 1;
+  }
+  .recommend-form input::placeholder, .recommend-form textarea::placeholder { color: var(--recommend-form-text); opacity: 1; }
+  .recommend-form button { background: var(--recommend-form-text); color: var(--recommend-field); font-weight: 700; }
+  .recommend-form button:disabled { cursor: not-allowed; }
+  .recommend-form .form-note { color: var(--recommend-form-text); }
   .inner-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: end; padding-bottom: 50px; border-bottom: 1px solid var(--color-border); }
   .inner-heading h1 { font-size: clamp(60px, 8vw, 96px); }
   .inner-heading > p { max-width: 560px; color: var(--color-content-muted); font-size: 16px; line-height: 1.8; }

@@ -4,26 +4,25 @@ Bienvenido a *AmeriK's Reading Corner*, un blog donde comparto reseñas, recomen
 
 ## Descripción
 
-Este blog está enfocado en compartir las experiencias de lectura de los libros que más me han impactado. Cada entrada del blog ofrece una reseña detallada con información sobre el autor, sinopsis del libro, lo que más me gustó, lo que menos me gustó y si lo recomiendo o no.
+Este blog está enfocado en compartir experiencias de lectura de los libros que más me han impactado.
 
-Los posts están escritos en formato Markdown (`.md`), y cada entrada tiene un diseño limpio, con imágenes centradas y texto justificado para una mejor lectura.
-
-Los libros están organizados por género, y cada entrada está etiquetada adecuadamente para facilitar la búsqueda y navegación.
+El panel privado permite administrar lecturas actuales y guardar borradores de reseñas. La publicación de reseñas en el sitio público todavía está pendiente de integración.
 
 ## Añadir contenido
 
-- Copia `src/templates/resena.md` a `src/pages/posts/` con un nombre nuevo y completa sus metadatos y secciones. `genre` indica un único género principal para las estadísticas; `tags` contiene todas las etiquetas de navegación. Las fechas se escriben como `AAAA-MM-DD`.
-- Los datos preparados en `src/data/currently-reading.json` se conservan para una futura sección de lecturas actuales.
-- El archivo por años utiliza la fecha de publicación de cada reseña. Las estadísticas reflejan únicamente las reseñas publicadas, no todas las lecturas registradas en Notion.
+- Usa `/admin` para iniciar sesión y gestionar lecturas y borradores. La portada puede ser una URL o una imagen subida; las reseñas también permiten imágenes de contexto.
+- Los originales de las cinco reseñas importadas se conservan en `src/data/legacy-reviews/`. No están publicados desde esos archivos.
+- El inicio consulta las lecturas actuales en Supabase. Los datos anteriores de `src/data/currently-reading.json` se conservan como referencia y no se importan automáticamente.
+- La integración de las reseñas publicadas con el archivo, las estadísticas y el RSS está pendiente.
 - El objetivo de Goodreads, las estadísticas de páginas y el envío de recomendaciones están pendientes de conectar a sus fuentes de datos.
 - La página «Nosotros» muestra las recomendaciones registradas en `src/data/recommendations.json`. Cada elemento usa `title`, `author`, `description` y `recommendedBy`; la lista está vacía hasta disponer de recomendaciones reales.
-- Los campos opcionales `tears` y `spice` de una reseña usan una escala de 0 a 5 para el mapa emocional. Si no se indican, se muestran como «Sin registrar».
+- Las puntuaciones opcionales de estrellas, lágrimas y picante usan una escala de 0 a 5.
 
 Para desarrollar localmente, ejecuta `npm install` y después `npm run dev`. Para comprobar la compilación, ejecuta `npm run build`.
 
-## Panel privado (pendiente)
+## Panel privado
 
-Hay una base SQL **parcial y no aplicada** para Supabase en [`supabase/README.md`](supabase/README.md). Todavía no existen el panel, la subida de portadas ni la integración con las páginas públicas; las reseñas y lecturas locales siguen siendo la fuente actual.
+El panel usa Supabase para el acceso, las lecturas actuales y los borradores. Consulta [`supabase/README.md`](supabase/README.md) para conocer la configuración, los scripts y las limitaciones pendientes. Publicar una reseña desde el panel todavía no está disponible.
 
 ## Identidad visual
 
