@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { allPosts, allYears } from '../utils/posts.js';
+const genres = [...new Set(allPosts.map((post) => post.frontmatter.genre).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'es'));
+const authors = [...new Set(allPosts.map((post) => post.frontmatter.bookAuthor).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'es'));
+---
+<BaseLayout pageTitle="Estadísticas | Amerik's Reading Corner">
+  <section class="inner-page" data-statistics>
+    <header class="inner-heading">
+      <div><p class="eyebrow">Lecturas en números</p><h1>Estadísticas</h1></div>
+      <p>Una mirada a la diversidad de las reseñas publicadas. Combina los filtros para explorar los libros por año, género y autor.</p>
+    </header>
+    <div class="stats-filters">
+      <label class="stat-label">Año<select data-stat-filter="year"><option value="">Todos</option>{allYears.map((year) => <option value={year}>{year}</option>)}</select></label>
+      <label class="stat-label">Género<select data-stat-filter="genre"><option value="">Todos</option>{genres.map((genre) => <option value={genre}>{genre}</option>)}</select></label>
+      <label class="stat-label">Autor<select data-stat-filter="author"><option value="">Todos</option>{authors.map((author) => <option value={author}>{author}</option>)}</select></label>
+      <label class="stat-label">Páginas<select disabled><option>Sin datos disponibles</option></select></label>
+    </div>
+    <div class="stats-summary">
+      <div><span class="stat-label">Reseñas publicadas</span><strong data-stat-total>{allPosts.length}</strong></div>
+      <div><span class="stat-label">Páginas recorridas</span><strong>—</strong></div>
+      <div><span class="stat-label">Promedio por libro</span><strong>—</strong></div>
+    </div>
+    <div class="stats-content">
+      <section>
+        <h2>Lecturas por género</h2>
+        {genres.map((genre) => {
+          const count = allPosts.filter((post) => post.frontmatter.genre === genre).length;
+          return <div class="stat-item" data-stat-genre={genre}><div><span>{genre}</span><span data-genre-count>{count}</span></div><div class="genre-bar"><span style={`width: ${allPosts.length ? count / allPosts.length * 100 : 0}%`}></span></div></div>;
+        })}
+      </section>
+      <section>
+        <h2>Libros en esta selección</h2>
+        <ul class="mt-4">
+          {allPosts.map((post) => (
+            <li data-stat-item data-year={new Date(post.frontmatter.pubDate).getUTCFullYear()} data-genre={post.frontmatter.genre} data-author={post.frontmatter.bookAuthor} class="border-b border-border py-4">
+              <a href={post.url} class="font-display text-xl">{post.frontmatter.title}</a>
+              <p class="text-sm text-subtle">{post.frontmatter.bookAuthor} · {post.frontmatter.genre}</p>
+            </li>
+          ))}
+        </ul>
+        <p data-stat-empty hidden class="mt-4 text-sm text-subtle">No hay reseñas para esta selección.</p>
+      </section>
+    </div>
+  </section>
+  <script>
+    const root = document.querySelector('[data-statistics]');
+    if (root) {
+      const filters = Array.from(root.querySelectorAll('select[data-stat-filter]'));
+      const items = Array.from(root.querySelectorAll('[data-stat-item]'));
+      const update = () => {
+        const selected = Object.fromEntries(filters.map((filter) => [filter.getAttribute('data-stat-filter'), filter.value]));
+        let total = 0;
+        const counts = new Map();
+        items.forEach((item) => {
+          const visible = Object.entries(selected).every(([key, value]) => !value || item.getAttribute(`data-${key}`) === value);
+          item.toggleAttribute('hidden', !visible);
+          if (visible) {
+            total++;
+            const genre = item.getAttribute('data-genre');
+            counts.set(genre, (counts.get(genre) ?? 0) + 1);
+          }
+        });
+        root.querySelector('[data-stat-total]').textContent = String(total);
+        root.querySelector('[data-stat-empty]').toggleAttribute('hidden', total > 0);
+        root.querySelectorAll('[data-stat-genre]').forEach((row) => {
+          const count = counts.get(row.getAttribute('data-stat-genre')) ?? 0;
+          row.querySelector('[data-genre-count]').textContent = String(count);
+          row.querySelector('.genre-bar span').style.width = `${total ? count / total * 100 : 0}%`;
+        });
+      };
+      filters.forEach((filter) => filter.addEventListener('change', update));
+      update();
+    }
+  </script>
+</BaseLayout>

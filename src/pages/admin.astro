@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/admin.css';
+
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL ?? '';
+const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+---
+<BaseLayout pageTitle="Administración | Amerik's Reading Corner">
+  <section class="inner-page admin-page" data-admin-root data-admin-page="login" data-supabase-url={supabaseUrl} data-supabase-key={supabaseKey}>
+    <header class="inner-heading">
+      <div><p class="eyebrow">Espacio privado</p><h1>Tu diario de lectura</h1></div>
+      <p>Un rincón para guardar las historias que te acompañan.</p>
+    </header>
+
+    <div class="admin-login-panel">
+      <p class="eyebrow">Bienvenida de nuevo</p>
+      <h2>Iniciar sesión</h2>
+      <p class="admin-status" role="status" aria-live="polite" data-admin-status>Comprobando la sesión…</p>
+      <form class="admin-form" data-admin-login hidden>
+        <label>Correo electrónico
+          <input name="email" type="email" autocomplete="username" required />
+        </label>
+        <label>Contraseña
+          <input name="password" type="password" autocomplete="current-password" required />
+        </label>
+        <button class="admin-button" type="submit">Entrar a mi diario</button>
+      </form>
+    </div>
+  </section>
+  <script>
+    import '../scripts/admin.js';
+  </script>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { allPosts } from '../utils/posts.js';
+---
+<BaseLayout pageTitle="Buscar | Amerik's Reading Corner">
+  <section class="inner-page">
+    <header class="inner-heading"><div><p class="eyebrow">Explora el diario</p><h1>Buscar</h1></div><p>Encuentra una reseña por título, autor o género.</p></header>
+    <div class="search-form mt-8"><label class="stat-label" for="search-query">Buscar reseñas</label><input id="search-query" type="search" placeholder="Título, autor o género" /></div>
+    <ul class="mt-8" data-search-results>
+      {allPosts.map((post) => <li data-search-item data-search-text={`${post.frontmatter.title} ${post.frontmatter.bookAuthor} ${post.frontmatter.genre}`} class="border-b border-border py-4"><a class="font-display text-2xl hover:text-primary-ink" href={post.url}>{post.frontmatter.title}</a><p class="text-sm text-subtle">{post.frontmatter.genre}</p></li>)}
+    </ul>
+    <p data-search-empty hidden class="mt-5 text-subtle">No se encontraron reseñas.</p>
+  </section>
+  <script>
+    const input = document.querySelector('#search-query');
+    const items = Array.from(document.querySelectorAll('[data-search-item]'));
+    const empty = document.querySelector('[data-search-empty]');
+    input?.addEventListener('input', () => {
+      const query = input.value.toLocaleLowerCase('es').trim();
+      let found = 0;
+      items.forEach((item) => {
+        const visible = item.getAttribute('data-search-text').toLocaleLowerCase('es').includes(query);
+        item.toggleAttribute('hidden', !visible);
+        if (visible) found++;
+      });
+      empty?.toggleAttribute('hidden', found > 0);
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,48 @@
+<section class="reading-editor review-editor" data-review-editor hidden aria-labelledby="review-form-heading">
+  <p class="eyebrow">Mi diario de lectura</p>
+  <h2 id="review-form-heading" data-review-form-title>Nueva reseña</h2>
+  <p class="reading-help" data-review-edit-notice></p>
+  <form class="admin-form" data-review-form>
+    <input type="hidden" name="id" />
+    <label>Título del libro <input name="title" required maxlength="300" /></label>
+    <label>Autor o autora del libro <input name="bookAuthor" required maxlength="300" /></label>
+    <label>Género <input name="genre" maxlength="300" /></label>
+    <label>Número de páginas <input name="pageCount" type="number" min="1" max="2147483647" step="1" /></label>
+    <label>Descripción breve <textarea name="description" rows="3" maxlength="5000"></textarea></label>
+    <label>Fecha de inicio <input type="date" name="readStart" /></label>
+    <label>Fecha de finalización <input type="date" name="readEnd" /></label>
+    <div class="review-ratings">
+      <label>Estrellas (0 a 5) <input name="rating" type="number" min="0" max="5" step="1" /></label>
+      <label>Lágrimas (0 a 5) <input name="tears" type="number" min="0" max="5" step="1" /></label>
+      <label>Picante (0 a 5) <input name="spice" type="number" min="0" max="5" step="1" /></label>
+    </div>
+    <label>Enlace de portada <input name="cover" type="url" maxlength="2048" placeholder="https://..." /></label>
+    <label>O subir una portada <input name="coverFile" type="file" accept="image/jpeg,image/png,image/webp" /></label>
+    <p class="reading-help">JPEG, PNG o WebP; máximo 5 MiB. Si subes un archivo, sustituye al enlace o portada anterior.</p>
+    <label class="review-checkbox"><input type="checkbox" name="removeCover" /> Quitar la portada</label>
+    <label>Opinión personal <textarea name="opinion" rows="12"></textarea></label>
+    <p class="reading-help">Puedes escribir texto y Markdown. La vista previa muestra el texto sin interpretar su formato.</p>
+    <fieldset class="review-images">
+      <legend>Imágenes de contexto</legend>
+      <p class="reading-help">Agrega enlaces o imágenes JPEG, PNG o WebP de hasta 5 MiB. No reemplazan la portada.</p>
+      <div data-context-images></div>
+      <button class="admin-button admin-button-secondary" type="button" data-context-add>+ Agregar imagen</button>
+    </fieldset>
+    <p class="reading-error" role="alert" data-review-error></p>
+    <div class="reading-actions">
+      <button class="admin-button" type="submit">Guardar reseña</button>
+      <button class="admin-button admin-button-secondary" type="button" data-review-preview-button>Vista previa</button>
+      <button class="admin-button admin-button-secondary" type="button" data-review-cancel>Cancelar</button>
+    </div>
+  </form>
+  <section class="review-preview" data-review-preview hidden aria-labelledby="review-preview-heading">
+    <p class="eyebrow">Vista previa privada</p>
+    <h3 id="review-preview-heading">Así se verá tu reseña</h3>
+    <p class="reading-help">El texto se muestra sin interpretar Markdown ni HTML. El diseño público definitivo estará disponible al conectar la publicación.</p>
+    <article class="preview-article">
+      <header><p class="eyebrow" data-preview-genre></p><h4 data-preview-title></h4><p data-preview-author></p></header>
+      <div class="preview-cover" data-preview-cover></div>
+      <div class="preview-content"><p class="preview-description" data-preview-description></p><p class="preview-opinion" data-preview-opinion></p><div class="preview-images" data-preview-images></div></div>
+    </article>
+  </section>
+</section>

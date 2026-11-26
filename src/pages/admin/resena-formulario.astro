@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewEditor from '../../components/ReviewEditor.astro';
+import '../../styles/admin.css';
+
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL ?? '';
+const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+---
+<BaseLayout pageTitle="Editar resena | Amerik's Reading Corner">
+  <section class="inner-page admin-page" data-admin-root data-admin-page="reviews" data-admin-editor data-supabase-url={supabaseUrl} data-supabase-key={supabaseKey}>
+    <p class="admin-status" role="status" aria-live="polite" data-admin-status>Comprobando la sesión…</p>
+    <div data-admin-welcome hidden>
+      <div class="admin-toolbar"><a class="admin-text-button" href="/admin/resenas">← Volver a reseñas</a><button class="admin-text-button" type="button" data-admin-logout>Cerrar sesión</button></div>
+      <p class="admin-status reading-status" role="status" aria-live="polite" data-review-status>Consultando datos…</p>
+      <ReviewEditor />
+    </div>
+  </section>
+  <script>
+    import '../../scripts/admin.js';
+  </script>
+</BaseLayout>

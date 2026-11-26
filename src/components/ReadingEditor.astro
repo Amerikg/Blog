@@ -1,0 +1,22 @@
+<section class="reading-editor" data-reading-editor hidden aria-labelledby="reading-form-heading">
+  <p class="eyebrow">Mi diario de lectura</p>
+  <h2 id="reading-form-heading" data-reading-form-title>Nueva lectura</h2>
+  <p class="reading-help">Todos los campos son obligatorios. Para la portada, usa un enlace o sube una imagen.</p>
+  <form class="admin-form" data-reading-form>
+    <input type="hidden" name="id" />
+    <label>Título<input name="title" required maxlength="300" /></label>
+    <label>Autor o autora<input name="author" required maxlength="300" /></label>
+    <label>Fecha de inicio <input type="date" name="start" required /></label>
+    <label>Género <input name="genre" required maxlength="300" /></label>
+    <label>Número de páginas <input name="pageCount" type="number" min="1" max="2147483647" step="1" required /></label>
+    <label>Pequeña descripción <textarea name="description" rows="4" maxlength="5000" required></textarea></label>
+    <label>Enlace de portada <input name="cover" type="url" maxlength="2048" placeholder="https://..." /></label>
+    <label>O subir una portada <input name="coverFile" type="file" accept="image/jpeg,image/png,image/webp" /></label>
+    <p class="reading-help">JPEG, PNG o WebP; máximo 5 MiB. Si subes un archivo, sustituye al enlace o portada anterior. Al editar, puedes conservar la portada guardada.</p>
+    <p class="reading-error" role="alert" data-reading-error></p>
+    <div class="reading-actions">
+      <button class="admin-button" type="submit">Guardar lectura</button>
+      <button class="admin-button admin-button-secondary" type="button" data-reading-cancel>Cancelar</button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/admin.css';
+
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL ?? '';
+const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+---
+<BaseLayout pageTitle="Mis reseñas | Amerik's Reading Corner">
+  <section class="inner-page admin-page" data-admin-root data-admin-page="reviews" data-supabase-url={supabaseUrl} data-supabase-key={supabaseKey}>
+    <p class="admin-status" role="status" aria-live="polite" data-admin-status>Comprobando la sesión…</p>
+    <div data-admin-welcome hidden>
+      <nav class="admin-navigation" aria-label="Administración">
+        <a href="/admin/lecturas-actuales">Lecturas actuales</a>
+        <a href="/admin/resenas" aria-current="page">Reseñas</a>
+      </nav>
+      <header class="inner-heading admin-heading">
+        <div><p class="eyebrow">Mi diario de lectura</p><h1>Mis reseñas</h1></div>
+        <p>Un lugar para guardar tus impresiones y volver a ellas.</p>
+      </header>
+      <div class="admin-toolbar">
+        <button class="admin-button" type="button" data-review-create>+ Nueva reseña</button>
+        <button class="admin-text-button" type="button" data-admin-logout>Cerrar sesión</button>
+      </div>
+      <p class="reading-help">Las reseñas nuevas se guardan como borradores. La publicación estará disponible más adelante.</p>
+      <p class="admin-status reading-status" role="status" aria-live="polite" data-review-status>Consultando reseñas…</p>
+      <ul class="admin-review-list" data-review-list></ul>
+
+    </div>
+  </section>
+  <script>
+    import '../../scripts/admin.js';
+  </script>
+</BaseLayout>

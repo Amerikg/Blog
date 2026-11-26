@@ -1,6 +1,22 @@
 ---
-const { title, url } = Astro.props;
+const { title, url, pubDate, tags = [], description, index = 0, bookAuthor } = Astro.props;
+const colors = ['sand', 'sage', 'rose'];
+const genre = tags[0] ?? 'Lectura';
 ---
-<div class="Blogs">
-<li><a href={url}>{title}</a></li>
-</div>
+<li class="review-card" data-review-genre={genre}>
+  <a href={url} class="review-card-link">
+    <div class:list={['review-card-art', colors[index % colors.length]]}>
+      <span class="review-number">{String(index + 1).padStart(2, '0')}</span>
+      <span class="review-art-genre">{genre}<span aria-hidden="true">●</span></span>
+    </div>
+    <div class="review-card-body">
+      <p class="eyebrow">{genre}</p>
+      <h3>{title}</h3>
+      {description && <p class="review-description">{description}</p>}
+      <div class="review-meta">
+        <span>{bookAuthor ?? 'Amerik'}</span>
+        {pubDate && <time datetime={new Date(pubDate).toISOString()}>{new Date(pubDate).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })}</time>}
+      </div>
+    </div>
+  </a>
+</li>

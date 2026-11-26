@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPost from '../../components/BlogPost.astro';
+import { allPosts, allYears } from '../../utils/posts.js';
+
+export function getStaticPaths() {
+  return allYears.map((year) => ({
+    params: { year: String(year) },
+    props: { year, posts: allPosts.filter((post) => new Date(post.frontmatter.pubDate).getUTCFullYear() === year) }
+  }));
+}
+
+const { year, posts } = Astro.props;
+const pageTitle = `Lecturas ${year} | Amerik's Reading Corner`;
+---
+<BaseLayout pageTitle={pageTitle}>
+ <section class="inner-page">
+  <a href="/archivo" class="eyebrow">← Volver al archivo</a>
+  <header class="inner-heading mt-6">
+    <div><p class="eyebrow">Archivo de lecturas</p><h1>Lecturas {year}</h1></div>
+    <p>{posts.length} {posts.length === 1 ? 'reseña publicada' : 'reseñas publicadas'} este año.</p>
+  </header>
+  <ul class="review-grid">
+    {posts.map((post, index) => (
+      <BlogPost url={post.url} title={post.frontmatter.title} pubDate={post.frontmatter.pubDate} tags={[post.frontmatter.genre]} description={post.frontmatter.description} bookAuthor={post.frontmatter.bookAuthor} index={index} />
+    ))}
+  </ul>
+ </section>
+</BaseLayout>

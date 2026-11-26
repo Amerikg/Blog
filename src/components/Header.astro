@@ -1,11 +1,16 @@
 ---
 import Navigation from './Navigation.astro';
-import Hamburger from './Hamburger.astro';
-import ThemeIcon from './ThemeIcon.astro';
 ---
-<header>
-  <nav>
-    <Hamburger />
-    <Navigation />
-  </nav>
+<header class="site-header">
+  <div class="header-inner">
+    <button class="menu-button" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle>
+      <span></span><span></span>
+    </button>
+    <a class="brand" href="/">Amerik's Reading Corner<span>.</span></a>
+    <nav aria-label="Navegación principal"><Navigation /></nav>
+    <a class="search-link" href="/buscar" aria-label="Buscar reseñas">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg>
+      <span>Buscar</span>
+    </a>
+  </div>
 </header>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { allPosts, allYears } from '../utils/posts.js';
+---
+<BaseLayout pageTitle="Archivo | Amerik's Reading Corner">
+  <section class="inner-page">
+    <header class="inner-heading">
+      <div><p class="eyebrow">Nuestra memoria lectora</p><h1>Archivo por año</h1></div>
+      <p>Las reseñas publicadas, ordenadas por año. Un registro para volver, descubrir y seguir leyendo.</p>
+    </header>
+    {allYears.map((year) => {
+      const posts = allPosts.filter((post) => new Date(post.frontmatter.pubDate).getUTCFullYear() === year);
+      return (
+        <section class="archive-year" id={`year-${year}`}>
+          <h2>{year}</h2>
+          <ul>{posts.map((post, index) => (
+            <li><a class="archive-entry" href={post.url}>
+              <small>{String(index + 1).padStart(2, '0')}</small>
+              <h3>{post.frontmatter.title}</h3>
+              <small class="archive-author">{post.frontmatter.bookAuthor}</small>
+              <span class="eyebrow">{post.frontmatter.genre}</span>
+            </a></li>
+          ))}</ul>
+        </section>
+      );
+    })}
+    {allYears.length === 0 && <p class="mt-8">Todavía no hay reseñas publicadas.</p>}
+  </section>
+</BaseLayout>

@@ -1,20 +1,21 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogPost from '../components/BlogPost.astro';
-const allPosts = await Astro.glob('../pages/posts/*.md');
-const pageTitle = "Mi blog de aprendizaje de Astro";
+import { allPosts } from '../utils/posts.js';
+
+const pageTitle = "Reseñas | Amerik's Reading Corner";
 ---
 <BaseLayout pageTitle={pageTitle}>
-  <p>Aquí es donde publicaré sobre mi viaje de aprendizaje de Astro.</p>
-  <ul>
-    {[...allPosts]
-      .sort((a, b) => a.frontmatter.title.localeCompare(b.frontmatter.title))
-      .map((post) => (
-        <BlogPost
-          key={post.url}
-          url={post.url}
-          title={post.frontmatter.title}
-        />
-      ))}
+ <section class="inner-page">
+  <header class="inner-heading">
+    <div><p class="eyebrow">El diario de lectura</p><h1>Todas las reseñas</h1></div>
+    <p>Opiniones y notas de las historias que he leído, ordenadas de la más reciente a la más antigua.</p>
+  </header>
+  <ul class="review-grid">
+    {allPosts.map((post, index) => (
+      <BlogPost url={post.url} title={post.frontmatter.title} pubDate={post.frontmatter.pubDate} tags={[post.frontmatter.genre]} description={post.frontmatter.description} bookAuthor={post.frontmatter.bookAuthor} index={index} />
+    ))}
   </ul>
+  {allPosts.length === 0 && <p class="mt-8">Todavía no hay reseñas publicadas.</p>}
+ </section>
 </BaseLayout>

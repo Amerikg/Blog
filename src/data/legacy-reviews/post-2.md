@@ -4,26 +4,16 @@ title: 'Wayward Son - Rainbow Rowell'
 pubDate: 2025-02-26
 description: 'Reseña de Wayward Son, la secuela de Carry On que nos lleva a una aventura inesperada'
 author: 'Amerik'
+bookAuthor: 'Rainbow Rowell'
+genre: 'Fantasía'
+rating: 5
+readStart: 2025-02-18
+readEnd: 2025-02-25
 image:
-    url: 'https://m.media-amazon.com/images/I/81Fl9T5brxL._SL1500_.jpg'
+    url: 'https://m.media-amazon.com/images/I/91yfdNcfFNL._SL1500_.jpg'
     alt: 'Portada del libro Wayward Son de Rainbow Rowell'
 tags: ["Fantasía", "LGBTQ+", "Romance", "Aventura"]
 ---
-
-<div style="text-align: center; color: #67e4ac; ">
-
-# Wayward Son - Rainbow Rowell
-
-</div>
-
-***
-Autor: Rainbow Rowell  
-Inicio: 18 de febrero de 2025  
-Finalización: 25 de febrero de 2025  
-Calificación: ⭐⭐⭐⭐⭐ (5/5)  
-***
-
-<img src="https://m.media-amazon.com/images/I/91yfdNcfFNL._SL1500_.jpg" alt="Portada" width="200" style="float: right; margin-left: 15px; margin-top: 30px">
 
 <div style="text-align: justify;">
 <div style="color: #ff2d54;">

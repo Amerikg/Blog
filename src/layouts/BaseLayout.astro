@@ -8,19 +8,28 @@ const { pageTitle } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="Amerik's Reading Corner" href="/rss.xml" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <!--<img class="page-cover-image" src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%">-->
+    <meta name="description" content="Reseñas, recomendaciones y reflexiones sobre libros." />
     <title>{pageTitle}</title>
-    <style>
-   
-    </style>
+    <script is:inline>
+      const savedTheme = localStorage.getItem('theme');
+      const useDarkTheme = savedTheme
+        ? savedTheme === 'dark'
+        : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.toggle('dark', useDarkTheme);
+      document.documentElement.dataset.theme = useDarkTheme ? 'dark' : 'light';
+    </script>
   </head>
   <body>
-    <Header />
-    <!--<h1 style="font-family:'Times New Roman', Times, serif; color: deeppink;">{pageTitle}</h1>-->
-    <slot />
-    <Footer />
+    <div class="site-shell">
+      <Header />
+      <main id="main-content">
+        <slot />
+      </main>
+      <Footer />
+    </div>
     <script>
       import "../scripts/menu.js";
     </script>

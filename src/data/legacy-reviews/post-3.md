@@ -4,26 +4,16 @@ title: 'Anyway the Wind Blows - Rainbow Rowell'
 pubDate: 2025-03-10
 description: 'Reseña de Anyway the Wind Blows, el desenlace de la trilogía de Simon Snow'
 author: 'Amerik'
+bookAuthor: 'Rainbow Rowell'
+genre: 'Fantasía'
+rating: 4
+readStart: 2025-02-26
+readEnd: 2025-03-09
 image:
-    url: 'https://m.media-amazon.com/images/I/81Fl9T5brxL._SL1500_.jpg'
+    url: 'https://m.media-amazon.com/images/I/81q-qNwhu6L._SL1500_.jpg'
     alt: 'Portada del libro Anyway the Wind Blows de Rainbow Rowell'
 tags: ["Fantasía", "LGBTQ+", "Romance", "Aventura"]
 ---
-
-<div style="text-align: center; color: #67e4ac; ">
-
-# Anyway the Wind Blows - Rainbow Rowell
-
-</div>
-
-***
-Autor: Rainbow Rowell  
-Inicio: 26 de febrero de 2025  
-Finalización: 09 de marzo de 2025  
-Calificación: ⭐⭐⭐⭐☆ (4/5)
-***
-
-<img src="https://m.media-amazon.com/images/I/81q-qNwhu6L._SL1500_.jpg" alt="Portada" width="200" style="float: right; margin-left: 25px; margin-top: 70px">
 
 <div style="text-align: justify;">
 <div style="color: #ff2d54;">

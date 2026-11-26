@@ -4,26 +4,16 @@ title: 'Carry On - Rainbow Rowell'
 pubDate: 2025-01-18
 description: 'Reseña de Carry On, una historia de magia, romance y aventura'
 author: 'Amerik'
+bookAuthor: 'Rainbow Rowell'
+genre: 'Fantasía'
+rating: 4
+readStart: 2025-01-01
+readEnd: 2025-01-17
 image:
     url: 'https://m.media-amazon.com/images/I/91Myz5AWueL._SL1500_.jpg'
     alt: 'Portada del libro Carry On de Rainbow Rowell'
 tags: ["Fantasía", "LGBTQ+", "Romance", "Magia"]
 ---
-<div style="text-align: center; color: #67e4ac; ">
-
-# Carry On - Rainbow Rowell
-
-</div>
-
-***
-Autor: Rainbow Rowell  
-Inicio: 1 de enero de 2025  
-Finalizacion: 17 de enero de 2025  
-Calificación: ⭐⭐⭐⭐☆ (4/5)
-***
-
-<img src="https://m.media-amazon.com/images/I/91Myz5AWueL._SL1500_.jpg" alt="Portada" width="200" style="float: right; margin-left: 15px;">
-
 <div style="text-align: justify;">
 <div style="color: #ff2d54;">
 

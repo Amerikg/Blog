@@ -4,26 +4,16 @@ title: 'El diablo tiene nombre - Francisco Asensi'
 pubDate: 2025-04-04
 description: 'Reseña de El diablo tiene nombre, una novela histórica sobre la inquisición y la libertad de pensamiento'
 author: 'Amerik'
+bookAuthor: 'Francisco Asensi'
+genre: 'Histórica'
+rating: 3
+readStart: 2025-03-10
+readEnd: 2025-04-04
 image:
-    url: 'https://pictures.abebooks.com/isbn/9788483461544-es.jpg'
+    url: 'https://m.media-amazon.com/images/I/81chd71cZiL._SL1200_.jpg'
     alt: 'Portada del libro El diablo tiene nombre de Francisco Asensi'
 tags: ["Histórica", "Inquisición", "Filosofía", "Drama", "Thriller"]
 ---
-
-<div style="text-align: center; color: #67e4ac; ">
-
-# El diablo tiene nombre - Francisco Asensi
-
-</div>
-
-***
-Autor: Francisco Asensi  
-Inicio: 10 de marzo de 2025  
-Finalización: 04 de abril 2025  
-Calificación: ⭐⭐⭐☆☆ (3/5)
-***
-
-<img src="https://m.media-amazon.com/images/I/81chd71cZiL._SL1200_.jpg" alt="Portada" width="200" style="float: right; margin-left: 25px; margin-top: 50px">
 
 <div style="text-align: justify;">
 <div style="color: #ff2d54;">

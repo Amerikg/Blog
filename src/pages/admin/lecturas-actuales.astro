@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/admin.css';
+
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL ?? '';
+const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+---
+<BaseLayout pageTitle="Lecturas actuales | Amerik's Reading Corner">
+  <section class="inner-page admin-page" data-admin-root data-admin-page="readings" data-supabase-url={supabaseUrl} data-supabase-key={supabaseKey}>
+    <p class="admin-status" role="status" aria-live="polite" data-admin-status>Comprobando la sesión…</p>
+    <div data-admin-welcome hidden>
+      <nav class="admin-navigation" aria-label="Administración">
+        <a href="/admin/lecturas-actuales" aria-current="page">Lecturas actuales</a>
+        <a href="/admin/resenas">Reseñas</a>
+      </nav>
+      <header class="inner-heading admin-heading">
+        <div><p class="eyebrow">Mi diario de lectura</p><h1>Lecturas actuales</h1></div>
+        <p>Las historias que me acompañan en este momento.</p>
+      </header>
+      <div class="admin-toolbar">
+        <button class="admin-button" type="button" data-reading-create>+ Nueva lectura</button>
+        <button class="admin-text-button" type="button" data-admin-logout>Cerrar sesión</button>
+      </div>
+      <p class="admin-status reading-status" role="status" aria-live="polite" data-reading-status>Consultando lecturas…</p>
+      <ul class="admin-reading-list" data-reading-list></ul>
+
+
+    </div>
+  </section>
+  <script>
+    import '../../scripts/admin.js';
+  </script>
+</BaseLayout>

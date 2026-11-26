@@ -4,26 +4,16 @@ title: 'Mis días en la librería Morisaki - Satoshi Yagisawa'
 pubDate: 2025-02-20
 description: 'Reseña de Mis días en la librería Morisaki, Una historia tranquila y reconfortante sobre libros, sanación y nuevos comienzos'
 author: 'Amerik'
+bookAuthor: 'Satoshi Yagisawa'
+genre: 'Ficción'
+rating: 5
+readStart: 2025-02-18
+readEnd: 2025-02-19
 image:
-    url: 'https://pictures.abebooks.com/isbn/9788483461544-es.jpg'
-    alt: 'Portada del libro Mis días en la librería Morisak'
+    url: 'https://m.media-amazon.com/images/I/91G3TjHdCTL._SL1500_.jpg'
+    alt: 'Portada del libro Mis días en la librería Morisaki'
 tags: ["Ficción", "Japonesa", "Sanación", "Contemporáneo"]
 ---
-
-<div style="text-align: center; color: #67e4ac; ">
-
-# El diablo tiene nombre - Francisco Asensi
-
-</div>
-
-***
-Autor: Satoshi Yagisawa  
-Inicio: 18 de febrero de 2025  
-Finalización: 19 de febrero 2025  
-Calificación: ⭐⭐⭐⭐⭐ (5/5)
-***
-
-<img src="https://m.media-amazon.com/images/I/91G3TjHdCTL._SL1500_.jpg" alt="Portada" width="200" style="float: right; margin-left: 25px; margin-top: 70px">
 
 <div style="text-align: justify;">
 <div style="color: #ff2d54;">

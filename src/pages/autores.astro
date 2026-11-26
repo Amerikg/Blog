@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { allPosts } from '../utils/posts.js';
+const authors = [...new Set(allPosts.map((post) => post.frontmatter.bookAuthor).filter(Boolean))]
+  .sort((a, b) => a.localeCompare(b, 'es'));
+---
+<BaseLayout pageTitle="Autores | Amerik's Reading Corner">
+  <section class="inner-page">
+    <header class="inner-heading">
+      <div><p class="eyebrow">Biblioteca de voces</p><h1>Autores leídos</h1></div>
+      <p>Un índice de las escritoras y escritores que han pasado por estas páginas. Cada nombre reúne sus reseñas publicadas.</p>
+    </header>
+    <div class="author-grid">
+      {authors.map((author) => {
+        const posts = allPosts.filter((post) => post.frontmatter.bookAuthor === author);
+        return (
+          <article class="author-row">
+            <span class="author-initial" aria-hidden="true">{author[0]}</span>
+            <div><h2>{author}</h2><p>Última reseña: <a href={posts[0].url}>{posts[0].frontmatter.title}</a></p></div>
+            <span class="author-count">{posts.length} {posts.length === 1 ? 'reseña' : 'reseñas'}</span>
+          </article>
+        );
+      })}
+    </div>
+    {authors.length === 0 && <p class="mt-8">Todavía no hay autores registrados.</p>}
+  </section>
+</BaseLayout>

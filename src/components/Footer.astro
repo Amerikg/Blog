@@ -1,20 +1,12 @@
 ---
-import Social from './Social.astro';
 import ThemeIcon from './ThemeIcon.astro';
+const currentYear = new Date().getFullYear();
 ---
-<style>
-    footer {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-  </style>
-  
-<footer>
-    <p>&copy; 2025 Amerik's Reading Corner. Todos los derechos reservados.</p>
-    <Social platform="twitter" username="astrodotbuild" />
-    <Social platform="goodreads" username="amerikg" />
-    <Social platform="tiktok" username="amerikg" />
-    <!--<Social platform="youtube" username="astrodotbuild" />-->
+<footer class="site-footer">
+  <p>© {currentYear} Amerik's Reading Corner.</p>
+  <div class="footer-links">
+    <a href="https://www.goodreads.com/amerikg" aria-label="Goodreads de amerikg" class="footer-social">g</a>
+    <a href="https://www.tiktok.com/@amerikg" aria-label="TikTok de amerikg" class="footer-social">♪</a>
     <ThemeIcon />
+  </div>
 </footer>
